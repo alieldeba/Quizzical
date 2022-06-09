@@ -1,6 +1,7 @@
 import React from "react";
 import Confetti from "react-confetti";
 import Start from "./components/Start";
+import Questions from "./components/Questions";
 import "./css/style.css";
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
 
   return (
     <>
-      {clicked === false && <Start startQuiz={startQuiz} />} <Confetti />
+      {clicked ? <Questions /> : <Start startQuiz={startQuiz} />} <Confetti />
     </>
   );
 }

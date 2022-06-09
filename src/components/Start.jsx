@@ -16,7 +16,7 @@ export default function Start(props) {
           luck
         </p>
         <button
-          className="btn btn-primary rounded-pill w-75"
+          className="btn btn-primary rounded w-75"
           onClick={props.startQuiz}
         >
           Start quiz
