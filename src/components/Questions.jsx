@@ -19,8 +19,8 @@ export default function Questions() {
   return (
     <div>
       {questions &&
-        questions.map((e) => {
-          return <Quiz question={e.question} answers={e.incorrect_answers} />;
+        questions.map((e, index) => {
+          return <Quiz key={index} question={e.question} answers={e.incorrect_answers} />;
         })}
     </div>
   );
