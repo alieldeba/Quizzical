@@ -1,4 +1,5 @@
 import React from "react";
+import Confetti from "react-confetti";
 import Start from "./components/Start";
 import "./css/style.css";
 
@@ -9,5 +10,9 @@ export default function App() {
     setClicked(true);
   }
 
-  return <div>{clicked === false && <Start startQuiz={startQuiz} />}</div>;
+  return (
+    <>
+      {clicked === false && <Start startQuiz={startQuiz} />} <Confetti />
+    </>
+  );
 }
