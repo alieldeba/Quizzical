@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f5f7fb;
+  font-family: "Karla", sans-serif !important;
+  width: 100%;
+  height: 100vh;
+}
+.start {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.start__text {
+  text-align: center;
+  color: #293264;
+  width: 412px;
+}
+.start__heading {
+  font-weight: 700;
+}
+.start__description {
+  margin-top: 20px;
+  font-weight: 400;
+}
+.start__blob1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.start__blob2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
