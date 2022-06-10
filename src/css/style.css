@@ -30,18 +30,33 @@ body {
   font-weight: 400;
 }
 .start__blob1 {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
 }
 .start__blob2 {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
 }
-hr {
-  width: 50%;
+.quiz__answers button {
+  color: #293264 !important;
+  border: solid 2px #4d5b9e !important;
+  background-color: #d6dbf5 !important;
+  border-radius: 20px;
+}
+.check-answers {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+}
+.question__blob1 {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.question__blob2 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }

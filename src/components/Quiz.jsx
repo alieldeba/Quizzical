@@ -5,11 +5,11 @@ export default function Quiz(props) {
   return (
     <div className="quiz">
       <div className="container">
-        <h3 className="quiz__question">{props.question}</h3>
+        <h3 className="quiz__question mb-3">{props.question}</h3>
         <div className="quiz__answers">
-          {props.answers.map((answer) => (
-            <button className="btn btn-danger rounded-pill">
-              {props.answer}
+          {props.options.map((option, index) => (
+            <button className="btn btn-primary rounded-pill mb-3 me-2" key={index}>
+              {option}
             </button>
           ))}
         </div>

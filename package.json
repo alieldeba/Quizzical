@@ -41,6 +41,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "react-use": "^17.4.0",
+    "react-use-window-size": "^1.0.1"
   }
 }
