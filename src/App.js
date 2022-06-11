@@ -2,12 +2,12 @@ import React from "react";
 import Confetti from "react-confetti";
 import Start from "./components/Start";
 import Questions from "./components/Questions";
+import CheckButton from "./components/CheckButton";
 import "./css/style.css";
 import "./css/bootstrap.min.css";
 
 export default function App() {
   const [isStarted, setIsStarted] = React.useState(false);
-  const [isGood, setIsGood] = React.useState(false);
 
   function startQuiz() {
     setIsStarted(true);
@@ -19,16 +19,10 @@ export default function App() {
 
   return (
     <div className="app">
-      {isGood && <Confetti />}
       {isStarted ? (
         <>
-          <Questions />{" "}
-          <button
-            className="btn btn-primary rounded check-answers mb-3"
-            onClick={() => setIsGood(true)}
-          >
-            Check Answers
-          </button>
+          <Questions />
+          <CheckButton />
         </>
       ) : (
         <Start startQuiz={startQuiz} />

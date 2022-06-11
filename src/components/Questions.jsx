@@ -6,7 +6,6 @@ import blob2 from "../images/question-blob2.svg";
 
 export default function Questions() {
   const [questions, setQuestions] = React.useState([]);
-  const [isChecked, setIsChecked] = React.useState(false);
 
   async function getQuestions() {
     const url =
@@ -14,12 +13,6 @@ export default function Questions() {
     const res = await fetch(url);
     const data = await res.json();
     setQuestions(data.results);
-  }
-
-  function checkAnswers() {
-    // 1. check if all the quetsions are answered
-    // 2. Change the isChecked state to true
-    setIsChecked(true);
   }
 
   function randomOptions(e) {
@@ -39,10 +32,14 @@ export default function Questions() {
       <img src={blob2} alt="blob" className="question__blob2" />
       {questions &&
         questions.map((e) => {
-          console.log(e);
           var options = randomOptions(e);
           return (
-            <Quiz question={e.question} options={options} key={nanoid()} />
+            <Quiz
+              question={e.question}
+              options={options}
+              correct={e.correct_answer}
+              key={nanoid()}
+            />
           );
         })}
     </main>
