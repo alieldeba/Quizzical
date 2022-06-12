@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/quiz-game/static/css/main.095a24f3.css",
-    "main.js": "/quiz-game/static/js/main.cd82ea27.js",
-    "index.html": "/quiz-game/index.html",
-    "static/media/start-blob2.svg": "/quiz-game/static/media/start-blob2.00299fc95403c0ac410452a196123c82.svg",
-    "static/media/question-blob2.svg": "/quiz-game/static/media/question-blob2.9c3cdd6deda16376bc77b2b2916feaad.svg",
-    "static/media/start-blob1.svg": "/quiz-game/static/media/start-blob1.d15d5a09fc2884d02c95f3c983afa8d1.svg",
-    "static/media/question-blob1.svg": "/quiz-game/static/media/question-blob1.c5802664f0892c37da6a8bdf9353d416.svg",
-    "main.095a24f3.css.map": "/quiz-game/static/css/main.095a24f3.css.map",
-    "main.cd82ea27.js.map": "/quiz-game/static/js/main.cd82ea27.js.map"
+    "main.css": "/Quizzical/static/css/main.095a24f3.css",
+    "main.js": "/Quizzical/static/js/main.b4018939.js",
+    "index.html": "/Quizzical/index.html",
+    "static/media/start-blob2.svg": "/Quizzical/static/media/start-blob2.00299fc95403c0ac410452a196123c82.svg",
+    "static/media/question-blob2.svg": "/Quizzical/static/media/question-blob2.9c3cdd6deda16376bc77b2b2916feaad.svg",
+    "static/media/start-blob1.svg": "/Quizzical/static/media/start-blob1.d15d5a09fc2884d02c95f3c983afa8d1.svg",
+    "static/media/question-blob1.svg": "/Quizzical/static/media/question-blob1.c5802664f0892c37da6a8bdf9353d416.svg",
+    "main.095a24f3.css.map": "/Quizzical/static/css/main.095a24f3.css.map",
+    "main.b4018939.js.map": "/Quizzical/static/js/main.b4018939.js.map"
   },
   "entrypoints": [
     "static/css/main.095a24f3.css",
-    "static/js/main.cd82ea27.js"
+    "static/js/main.b4018939.js"
   ]
 }
