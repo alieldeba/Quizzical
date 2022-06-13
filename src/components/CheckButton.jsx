@@ -1,17 +1,23 @@
 import React from "react";
 
-export default function CheckButton() {
-  const [isGood, setIsGood] = React.useState(false);
-
-  function check() {
-    // 1. check that all the questions are answered
-    // 2. check the result and save it in a variable
-    setIsGood(true);
+export default function CheckButton(props) {
+  function reload() {
+    window.location.reload();
   }
-  return (
+
+  return props.isGood ? (
+    <div className="d-flex justify-content-center align-items-center pb-3 gap-2">
+      <h5>
+        You Scored {props.correct}/{props.questionsNumber} correct answers
+      </h5>
+      <button className="btn btn-primary rounded" onClick={reload}>
+        Play again
+      </button>
+    </div>
+  ) : (
     <button
       className="btn btn-primary rounded check-answers mb-3"
-      onClick={check}
+      onClick={props.check}
     >
       Check Answers
     </button>

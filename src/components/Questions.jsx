@@ -4,16 +4,8 @@ import Quiz from "./Quiz";
 import blob1 from "../images/question-blob1.svg";
 import blob2 from "../images/question-blob2.svg";
 
-export default function Questions() {
-  const [questions, setQuestions] = React.useState([]);
+export default function Questions(props) {
 
-  async function getQuestions() {
-    const url =
-      "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
-    const res = await fetch(url);
-    const data = await res.json();
-    setQuestions(data.results);
-  }
 
   function randomOptions(e) {
     // This array contains for example: ["microsoft", "apple", "meta", "macdonalds"]
@@ -22,16 +14,12 @@ export default function Questions() {
     return newOptions;
   }
 
-  React.useEffect(() => {
-    getQuestions();
-  }, []);
-
   return (
     <main className="py-3 px-5">
       <img src={blob1} alt="blob" className="question__blob1" />
       <img src={blob2} alt="blob" className="question__blob2" />
-      {questions &&
-        questions.map((e) => {
+      {props.questions &&
+        props.questions.map((e) => {
           var options = randomOptions(e);
           return (
             <Quiz
