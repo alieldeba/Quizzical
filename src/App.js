@@ -1,48 +1,42 @@
 import React from "react";
-import Confetti from "react-confetti";
+// import Confetti from "react-confetti";
 import Start from "./components/Start";
 import Questions from "./components/Questions";
 import CheckButton from "./components/CheckButton";
 import "./css/style.css";
 import "./css/bootstrap.min.css";
+import { useDispatch } from "react-redux";
+import { decode } from "html-entities";
+import { setApi } from "./slices/apiSlice";
 
 export default function App() {
-  const [questions, setQuestions] = React.useState([]);
+  const dispatch = useDispatch();
+
   const [isStarted, setIsStarted] = React.useState(false);
-  const [correct, setCorrect] = React.useState(0);
-  const [questionsAnswered, setQuestionsAnswered] = React.useState(0);
-  const [isGood, setIsGood] = React.useState(false);
-  const [questionsNumber, setQuestionsNumber] = React.useState();
+
+  const numberOfQuestions = 20;
 
   function startQuiz() {
     setIsStarted(true);
   }
 
   async function getQuestions() {
-    const url =
-      "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
+    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&type=multiple`;
     const res = await fetch(url);
     const data = await res.json();
-    setQuestions(data.results);
-    setQuestionsNumber(data.results.length);
+    dispatch(setApi(decode(data.results)));
   }
 
   React.useEffect(() => {
     getQuestions();
   }, []);
 
-  // Setting isGood to true if the result of the test is more than the half
-  function check() {
-    // check that all questions are answered
-    setIsGood(true)
-  }
-
   return (
     <div className="app">
       {isStarted ? (
         <>
-          <Questions questions={questions} />
-          <CheckButton correct={correct} questionsNumber={questionsNumber} check={check} isGood={isGood} />
+          <Questions />
+          <CheckButton numberOfQuestions={numberOfQuestions} />
         </>
       ) : (
         <Start startQuiz={startQuiz} />
