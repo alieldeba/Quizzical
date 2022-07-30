@@ -21,7 +21,7 @@ export default function App() {
   }
 
   async function getQuestions() {
-    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&type=multiple`;
+    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=18&type=multiple`;
     const res = await fetch(url);
     const data = await res.json();
     dispatch(setApi(decode(data.results)));
