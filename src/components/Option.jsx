@@ -36,17 +36,64 @@ export default function Option(props) {
   return (
     <>
       {allOptions.map((option) => {
-        return (
-          <button
-            className={`btn btn-primary rounded mb-3 me-2 ${
-              calculate && "disabled"
-            } ${answerValue === option ? "active" : "inactive"}`}
-            onClick={() => activeButton(option)}
-            key={nanoid()}
-          >
-            {decode(option)}
-          </button>
-        );
+        if (calculate && !answerValue) {
+          return (
+            <button
+              className={`btn btn-primary rounded mb-3 me-2 ${
+                calculate && "disabled"
+              } ${answerValue === option ? "active" : "inactive"}`}
+              onClick={() => activeButton(option)}
+              key={nanoid()}
+            >
+              {decode(option)}
+            </button>
+          );
+        } else if (
+          calculate &&
+          answerValue === option &&
+          answerValue === props.correctOption
+        ) {
+          return (
+            <button
+              className={`btn green rounded mb-3 me-2 ${
+                calculate && "disabled"
+              } ${answerValue === option ? "active" : "inactive"}`}
+              onClick={() => activeButton(option)}
+              key={nanoid()}
+            >
+              {decode(option)}
+            </button>
+          );
+        } else if (
+          calculate &&
+          answerValue &&
+          answerValue === option &&
+          answerValue !== props.correctOption
+        ) {
+          return (
+            <button
+              className={`btn red rounded mb-3 me-2 ${
+                calculate && "disabled"
+              } ${answerValue === option ? "active" : "inactive"}`}
+              onClick={() => activeButton(option)}
+              key={nanoid()}
+            >
+              {decode(option)}
+            </button>
+          );
+        } else {
+          return (
+            <button
+              className={`btn btn-primary rounded mb-3 me-2 ${
+                calculate && "disabled"
+              } ${answerValue === option ? "active" : "inactive"}`}
+              onClick={() => activeButton(option)}
+              key={nanoid()}
+            >
+              {decode(option)}
+            </button>
+          );
+        }
       })}
     </>
   );
