@@ -22,7 +22,7 @@ export default function App() {
     }, 2500);
   }
 
-  async function getQuestions() {
+  function getQuestions() {
     const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=18&type=multiple`;
     axios.get(url).then((response) => {
       dispatch(setApi(response.data.results));
