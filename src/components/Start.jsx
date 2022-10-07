@@ -12,7 +12,8 @@ export default function Start(props) {
       <section className="start__text">
         <h1 className="start__heading">Quizzical</h1>
         <p className="start__description">
-          Test your knowledge and skills with this little quiz test, Good Luck
+          Try to answer all the questions right to get the prize at the end, Good
+          luck
         </p>
         <button
           className="btn btn-primary rounded w-75 start__button"
