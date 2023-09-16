@@ -2,8 +2,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Karla } from "next/font/google";
+import ReactQueryProvider from "./ReactQueryProvider";
 
-const karla = Karla({ subsets: ["latin"] });
+const karla = Karla({ subsets: ["latin"], weight: ["500", "700"] });
 
 export const metadata: Metadata = {
   title: "Quizzical",
@@ -18,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={karla.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+        <ReactQueryProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+          </ThemeProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

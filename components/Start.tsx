@@ -1,8 +1,9 @@
+"use client";
+
 import React from "react";
 import { Button } from "./ui/button";
-import Image from "next/image";
 
-export default function Start() {
+export default function Start({ state }: any) {
   return (
     <>
       {/* <Image
@@ -18,7 +19,11 @@ export default function Start() {
           Try to answer all the questions right to get the prize at the end,
           Good luck.
         </p>
-        <Button variant="outline" className="flex gap-2">
+        <Button
+          variant="outline"
+          className="flex gap-2"
+          onClick={() => state(true)}
+        >
           <p>Let&apos;s Go</p>
           <svg
             width="15"
