@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { useScore } from "@/store/useScore";
 
 export default function Start({ state }: any) {
-  const { setShowResult } = useScore();
+  const { setShowResult, resetScore } = useScore();
   return (
     <>
       {/* <Image
@@ -26,6 +26,7 @@ export default function Start({ state }: any) {
           className="flex gap-2"
           onClick={() => {
             state(true);
+            resetScore();
             setShowResult(false);
           }}
         >
