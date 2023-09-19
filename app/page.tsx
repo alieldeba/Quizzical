@@ -11,7 +11,11 @@ export default function App() {
   return (
     <>
       <ModeToggle />
-      {showQuestions ? <Questions /> : <Start state={setShowQuestions} />}
+      {showQuestions ? (
+        <Questions state={setShowQuestions} />
+      ) : (
+        <Start state={setShowQuestions} />
+      )}
     </>
   );
 }

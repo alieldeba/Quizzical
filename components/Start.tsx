@@ -2,8 +2,10 @@
 
 import React from "react";
 import { Button } from "./ui/button";
+import { useScore } from "@/store/useScore";
 
 export default function Start({ state }: any) {
+  const { setShowResult } = useScore();
   return (
     <>
       {/* <Image
@@ -22,7 +24,10 @@ export default function Start({ state }: any) {
         <Button
           variant="outline"
           className="flex gap-2"
-          onClick={() => state(true)}
+          onClick={() => {
+            state(true);
+            setShowResult(false);
+          }}
         >
           <p>Let&apos;s Go</p>
           <svg

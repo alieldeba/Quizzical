@@ -4,8 +4,10 @@ import { Separator } from "./ui/separator";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { decode } from "html-entities";
+import Options from "./Options";
+import ShowResult from "./ShowResult";
 
-export default function Questions() {
+export default function Questions({ state }: { state: any }) {
   const questions = [
     {
       title: "First question",
@@ -39,30 +41,25 @@ export default function Questions() {
           {data.map((question: any, idx: number) => {
             return (
               <>
-                <div className="flex flex-col gap-2" key={idx}>
+                <div className="flex flex-col gap-2 select-none" key={idx}>
                   <h3 className="textlg md:text-2xl">
                     {decode(question.question)}
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {shuffleOptions([
-                      ...question.incorrect_answers,
-                      question.correct_answer,
-                    ]).map((option, idx) => {
-                      return (
-                        <Button variant="outline" key={idx}>
-                          {decode(option)}
-                        </Button>
-                      );
-                    })}
+                    <Options
+                      options={shuffleOptions([
+                        ...question.incorrect_answers,
+                        question.correct_answer,
+                      ])}
+                      answer={question.correct_answer}
+                    />
                   </div>
                 </div>
                 <Separator className={`${idx + 1 === 10 ? "hidden" : ""}`} />
               </>
             );
           })}
-          <Button className="w-fit m-auto mb-5" variant="outline">
-            Submit
-          </Button>
+          <ShowResult state={state} />
         </div>
       )}
     </>
