@@ -15,7 +15,7 @@ export default function ShowResult({ state }: { state: any }) {
         <div className="flex flex-col">
           <p className="w-fit m-auto">Your Score: {score} / 10</p>
           <Button variant="link" onClick={() => state(false)}>
-            try Again?
+            try again?
           </Button>
         </div>
       ) : (

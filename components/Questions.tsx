@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { useQuery } from "@tanstack/react-query";
@@ -8,19 +8,6 @@ import Options from "./Options";
 import ShowResult from "./ShowResult";
 
 export default function Questions({ state }: { state: any }) {
-  const questions = [
-    {
-      title: "First question",
-      options: ["A", "B", "C"],
-      answer: "D",
-    },
-    {
-      title: "Second question",
-      options: ["A", "C", "D"],
-      answer: "B",
-    },
-  ];
-
   function shuffleOptions(options: string[]): string[] {
     return options.sort(() => 0.5 - Math.random());
   }
@@ -42,7 +29,7 @@ export default function Questions({ state }: { state: any }) {
             return (
               <>
                 <div className="flex flex-col gap-2 select-none" key={idx}>
-                  <h3 className="textlg md:text-2xl">
+                  <h3 className="text-lg md:text-2xl">
                     {decode(question.question)}
                   </h3>
                   <div className="flex flex-wrap gap-2">

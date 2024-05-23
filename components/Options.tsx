@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { decode } from "html-entities";
 import { useScore } from "@/store/useScore";
@@ -12,13 +12,12 @@ export default function Options({
 }) {
   const [activeBtn, setActiveBtn] = useState<string>();
   const { showResult, incrementScore } = useScore();
-  // To Prevent Infinite Loop
-  const [isCalculated, setIsCalculated] = useState<boolean>(false);
 
-  if (showResult && activeBtn === answer && !isCalculated) {
-    setIsCalculated(true);
-    incrementScore();
-  }
+  useEffect(() => {
+    if (showResult && activeBtn === answer) {
+      incrementScore();
+    }
+  }, [showResult]);
 
   return (
     <>
